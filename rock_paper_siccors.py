@@ -20,8 +20,14 @@ secenekler=["taş", "kağıt","makas"]
 user=0
 pc=0
 
+#OYUN BİTTİ
+oyun_bitti=False
+
 #fonksiyonlar
 def oyun(kullanıcı_secimi):
+    if oyun_bitti:
+        return
+    
     global pc, user
     pc_secimi=random.choice(secenekler)
     if (kullanıcı_secimi==pc_secimi):
@@ -38,6 +44,21 @@ def oyun(kullanıcı_secimi):
         pc+=1
         puan_metni.configure(text="puanınız: "+ str(user) + " bilgisayarın  puanı :"+ str(pc))
         sonuç_metni.configure(text="bilgisayar kazandı, siz kaybettiniz! bilgisayarın seçimi: " +pc_secimi)
+    oyun_sonu()
+
+#oyunu bitirme fonksiyonu
+def oyun_sonu():
+    global pc, user
+    global oyun_bitti
+
+    if user==10:
+        oyun_bitti=True
+        sonuç_metni.configure(text="oyun bitti, siz kazandınız tebrikler!")
+    elif pc==10:
+        oyun_bitti=True
+        sonuç_metni.configure(text="oyun bitti, bilgisayar kazandı")
+    else:
+        ...
 
 #puan yazısı
 puan_metni=ctk.CTkLabel(pencere, text="puanınız: " + str(user) + " bilgisayarın puanı : " + str(pc), font=("arial", 30))
