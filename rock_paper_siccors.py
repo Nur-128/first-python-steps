@@ -59,6 +59,14 @@ def oyun_sonu():
         sonuç_metni.configure(text="oyun bitti, bilgisayar kazandı")
     else:
         ...
+#yeniden başlatma fonksiyonu
+def yenidenbaşlat():
+  global user, pc, oyun_bitti
+  user=0
+  pc=0
+  oyun_bitti=False
+  puan_metni.configure(text="puanınız: 0 bilgisayarın puanı: 0")
+  sonuç_metni.configure(text="")
 
 #puan yazısı
 puan_metni=ctk.CTkLabel(pencere, text="puanınız: " + str(user) + " bilgisayarın puanı : " + str(pc), font=("arial", 30))
@@ -81,5 +89,8 @@ kağıt_butonu.grid(row=1, column=1, padx=10)
 
 makas_butonu = ctk.CTkButton(pencere, text="makas", command=lambda: oyun("makas"), fg_color="#a55af4", hover_color="#eecffe", width=300, height=60)
 makas_butonu.grid(row=1, column=2, padx=10)
+
+yeniden_başlat_butonu=ctk.CTkButton(pencere, text="yeniden başlat", command=yenidenbaşlat, fg_color="#483f8a", hover_color="#847cca", width=300, height=60)
+yeniden_başlat_butonu.grid(row=4, column=4, columnspan=3, pady=20)
 
 pencere.mainloop()
