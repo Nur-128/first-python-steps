@@ -1,6 +1,6 @@
 #kütüphanemiz
 import customtkinter as ctk
-import calculator 
+import calculator
 
 #penceremiz(asıl olay)
 window=ctk.CTk()
