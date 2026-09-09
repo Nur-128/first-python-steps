@@ -1,5 +1,5 @@
+#işlem fonksiyonumuz
 
-#işlem fonksiyonumz
 def hesaplama(a, b, işlem):
     a=float(a)
     b=float(b)
